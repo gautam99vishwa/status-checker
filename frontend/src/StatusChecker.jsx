@@ -53,7 +53,7 @@ const StatusChecker = () => {
 
         setTimeout(() => {
             handleCheck();
-        }, 5000)
+        }, 60000)
 
         const urlsArray = urls.split('\n').filter(url => url.trim() !== '');
         const servicesArray = services.split('\n').filter(service => service.trim() !== '');
@@ -70,10 +70,10 @@ const StatusChecker = () => {
     };
 
     // useEffect hook to add a default state
-    useEffect(() => {
-        setUrls('https://www.example.com\nhttps://www.google.com');
-        setServices('127.0.0.1:80\n127.0.0.1:3000');
-    }, []);
+    // useEffect(() => {
+    //     setUrls('https://www.example.com\nhttps://www.google.com');
+    //     setServices('127.0.0.1:80\n127.0.0.1:3000');
+    // }, []);
 
     return (
         <div className="min-h-screen bg-gray-100 py-6">

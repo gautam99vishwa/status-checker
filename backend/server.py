@@ -10,11 +10,14 @@ CORS(app)  # Enable CORS for all routes
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+headers = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+}
 
 def check_service_status(url):
     """Checks if the service is online and returns status & HTTP code properly."""
     try:
-        response = requests.get(url, timeout=2)  # Short timeout to avoid delays
+        response = requests.get(url, headers=headers, timeout=5)  # Short timeout to avoid delays
         is_online = 200 <= response.status_code < 300  # True if status is 2xx
         return {"url": url, "status": is_online, "code": response.status_code}
 
